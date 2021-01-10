@@ -7,13 +7,17 @@ os clientes e as unidades (filiais) da empresa.
 
 ## Como iniciar o projeto
 
-Para executar esse projeto você deve ter um computador, preferencialmente com
+:warning: Para executar esse projeto você deve ter um computador, preferencialmente com
 Linux, com a linguagem de programação Ruby na versão 2.6.3
 
-Dentro do diretório do projeto, você deve instalar as dependências definidas no
+:warning: Baixe esse projeto com o `git clone`
+
+:warning: Dentro do diretório do projeto, você deve instalar as dependências definidas no
 arquivo `Gemfile` com o comando `bundle install`.
 
-Com todas dependências instaladas, execute `rails server` e acesse
+:warning: Para preparar e iniciar o banco, execute `rails db:create` para criar o banco, `rails db:migrate` para realizar as migrations dos dados do banco, `rails db:seed` para registrar os dados definidos em `db/seeds`.
+ 
+:warning: Com todas dependências instaladas e o banco preparado, execute `rails server` e acesse
 `localhost:3000` em seu navegador.
 
 
