@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RentalCars</title>
+    <title>RentalCars | Workshop MCV Campus Code</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +11,9 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div >
+      <%= render 'shared/flashes' %>
+    </div>
     <div class="container mt-3">
       <%= yield %>
     </div>
