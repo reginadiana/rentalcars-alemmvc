@@ -53,4 +53,18 @@ existem carros disponíveis no período escolhido.
   
 :blue_car: Uma locação deve ser composta de ao menos um carro e 0 ou N acessórios
   adicionais (AddOns) além de 0 ou N coberturas de seguro
+  
+## Workshop
+
+:books: 11/01 - Segunda
+
+:books: 13/01 - Quarta
+
+:books: 15/01 - Sexta
+
+:books: 18/01 - Segunda
+
+:books: 20/01 - Quarta
+
+:books: 22/01 - Sexta
 
