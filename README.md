@@ -58,28 +58,32 @@ existem carros disponíveis no período escolhido.
 
 :books: **11/01 - Segunda**
 
-3 coisas que temos que enviar ao escrever código
+Existem 3 pontos que temos que enviar ao escrever código
 
-- rigidez - Todo projeto muda, então rigidez não é algo que queremos no código.
+:warning: Rigidez: quando escrevemos um código dificil de mudar para adicionar uma nova funcionalidade ou modificar um comportamento.
 
-- fragilidade - O comportamento de cada componente deve ser um só, de maneira que a falta dele não impacte do funcionamento de tudo. 
+:warning: Fragilidade: o comportamento de cada componente deve ser um só, de maneira que a falta dele não impacte do funcionamento de tudo. 
 
-- viscosidade - Quando temos um projeto muito bagunçado, precisamos fazer uma nova feature e temos que continuar fazendo de maneira bagunçada. 
+:warning: Viscosidade: quando escrevemos um código tão bagunçado que novas features e modificações acabam sendo feitas com mais código bagunçado.
 
 Como evitar:
 
 - Estudar mais
 
-- Trade-offs: tem a ver com design x funcionalidade, ou seja, por mais que no começo entreguemos mais valor mas com código ruim, a longo prazo isso se torna muito custoso. Entao devemos planejar desde cedo e demorar um pouco mais para entregar mas com código melhor. 
+- _Trade-offs:_ tem a ver com design x funcionalidade, ou seja, por mais que no começo entreguemos mais valor mas com código ruim, a longo prazo isso se torna muito custoso. Entao devemos planejar desde cedo e demorar um pouco mais para entregar mas com código melhor. 
 
-Como organizar o código para nao cair nessas armadilhas?
+- SOLID e Design Patterns:
 
-Solid não é uma tecnica e sim aonde queremos chegar. A ferramenta é do Design Patters. 
+> _SOLID é o objetivo, o Design Patterns é o caminho._ 
 
 **S** - Cada classe deve ter apenas uma responsábilidade.
+
 **0** - Alterar o comportamento da classe sem alterar o código. 
-**L** - 
-**I** - Em ruby não tem interface. Um exemplo desse conceito é: podemos escrever várias classes com tipos de pagamento, mas todas devem respeitar a uma interface, ou seja, devem realizar um pagamento, verificar salto, etc. É como se tivessemos uma classe estrutural. 
+
+**L** - Tem a ver com hierarquia de classes.
+
+**I** - Em ruby não tem interface. Um exemplo desse conceito é: podemos escrever várias classes com tipos de pagamento diversos com cartão, mas todas devem respeitar a uma interface, ou seja, devem realizar um pagamento, verificar salto, etc. É como se tivessemos uma classe estrutural para criar as outras. 
+
 **D** - Evitar dependencias diretas entre classes.
 
 **Ative Record:** registro ativo
