@@ -56,15 +56,15 @@ existem carros disponíveis no período escolhido.
   
 ## Workshop
 
-:books: 11/01 - Segunda
+:books: **11/01 - Segunda**
 
-:books: 13/01 - Quarta
+:books: **13/01 - Quarta**
 
-:books: 15/01 - Sexta
+:books: **15/01 - Sexta**
 
-:books: 18/01 - Segunda
+:books: **18/01 - Segunda**
 
-:books: 20/01 - Quarta
+:books: **20/01 - Quarta**
 
-:books: 22/01 - Sexta
+:books: **22/01 - Sexta**
 
