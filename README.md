@@ -90,6 +90,10 @@ Como evitar:
 
 Quando criamos um model do rails, ele já nasce com as responsabilidades de persistir os dados e regra de negocios.
 
+**Links interessantes:**
+
+- [Test Driven Rails](https://thoughtbot.com/upcase/test-driven-rails)
+
 :books: **13/01 - Quarta**
 
 :books: **15/01 - Sexta**
