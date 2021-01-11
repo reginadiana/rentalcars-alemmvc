@@ -72,6 +72,20 @@ Como evitar:
 
 - Trade-offs: tem a ver com design x funcionalidade, ou seja, por mais que no começo entreguemos mais valor mas com código ruim, a longo prazo isso se torna muito custoso. Entao devemos planejar desde cedo e demorar um pouco mais para entregar mas com código melhor. 
 
+Como organizar o código para nao cair nessas armadilhas?
+
+Solid não é uma tecnica e sim aonde queremos chegar. A ferramenta é do Design Patters. 
+
+**S** - Cada classe deve ter apenas uma responsábilidade.
+**0** - Alterar o comportamento da classe sem alterar o código. 
+**L** - 
+**I** - Em ruby não tem interface. Um exemplo desse conceito é: podemos escrever várias classes com tipos de pagamento, mas todas devem respeitar a uma interface, ou seja, devem realizar um pagamento, verificar salto, etc. É como se tivessemos uma classe estrutural. 
+**D** - Evitar dependencias diretas entre classes.
+
+**Ative Record:** registro ativo
+
+Quando criamos um model do rails, ele já nasce com as responsabilidades de persistir os dados e regra de negocios.
+
 :books: **13/01 - Quarta**
 
 :books: **15/01 - Sexta**
