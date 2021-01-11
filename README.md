@@ -58,6 +58,20 @@ existem carros disponíveis no período escolhido.
 
 :books: **11/01 - Segunda**
 
+3 coisas que temos que enviar ao escrever código
+
+- rigidez - Todo projeto muda, então rigidez não é algo que queremos no código.
+
+- fragilidade - O comportamento de cada componente deve ser um só, de maneira que a falta dele não impacte do funcionamento de tudo. 
+
+- viscosidade - Quando temos um projeto muito bagunçado, precisamos fazer uma nova feature e temos que continuar fazendo de maneira bagunçada. 
+
+Como evitar:
+
+- Estudar mais
+
+- Trade-offs: tem a ver com design x funcionalidade, ou seja, por mais que no começo entreguemos mais valor mas com código ruim, a longo prazo isso se torna muito custoso. Entao devemos planejar desde cedo e demorar um pouco mais para entregar mas com código melhor. 
+
 :books: **13/01 - Quarta**
 
 :books: **15/01 - Sexta**
