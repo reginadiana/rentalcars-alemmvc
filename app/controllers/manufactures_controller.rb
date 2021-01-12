@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ManufacturesController < ApplicationController
   before_action :authorize_admin
 
@@ -29,12 +31,12 @@ class ManufacturesController < ApplicationController
   def update
     @manufacture = Manufacture.find(params[:id])
     if @manufacture.update(manufacture_params)
-       redirect_to @manufacture
+      redirect_to @manufacture
     else
       render :edit
     end
   end
-  
+
   private
 
   def manufacture_params

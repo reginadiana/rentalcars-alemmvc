@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CarsController < ApplicationController
   def new
     @car = Car.new
@@ -7,7 +9,7 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     return redirect_to @car if @car.save
-    
+
     @car_models = CarModel.all
     render :new
   end

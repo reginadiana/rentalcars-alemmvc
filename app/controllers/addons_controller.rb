@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddonsController < ApplicationController
   before_action :set_addon, only: %i[edit update]
 
@@ -20,9 +22,7 @@ class AddonsController < ApplicationController
   end
 
   def update
-    if @addon.update(addon_params)
-      return redirect_to addons_path, notice: t('.notice')
-    end
+    return redirect_to addons_path, notice: t('.notice') if @addon.update(addon_params)
 
     render :edit
   end

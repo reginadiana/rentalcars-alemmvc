@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin edit subsidiary' do
   scenario 'successfully' do
     subsidiary = create(:subsidiary, name: 'Rent a car')
-    subsidiary.create_address!(attributes = {  street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
     user = create(:user, role: :admin)
 
     login_as user, scope: :user
@@ -32,8 +34,8 @@ feature 'Admin edit subsidiary' do
 
   scenario 'and must fill all fields' do
     subsidiary = create(:subsidiary, name: 'Rent a car')
-    subsidiary.create_address!(attributes = {  street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
 
     user = create(:user, role: :admin)
 
@@ -66,7 +68,7 @@ feature 'Admin edit subsidiary' do
 
     login_as user, scope: :user
     visit root_path
-    
+
     expect(page).not_to have_link('Filiais')
   end
 
@@ -75,7 +77,7 @@ feature 'Admin edit subsidiary' do
 
     login_as user, scope: :user
     visit new_subsidiary_path
-  
+
     expect(current_path).to eq root_path
   end
 end

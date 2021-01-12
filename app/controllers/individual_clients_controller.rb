@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IndividualClientsController < ApplicationController
   before_action :authenticate_user!
 
@@ -18,7 +20,7 @@ class IndividualClientsController < ApplicationController
     @individual_client = IndividualClient.new(individual_client_params)
     if @individual_client.save
       redirect_to @individual_client
-   else
+    else
       render :new
     end
   end
@@ -40,8 +42,7 @@ class IndividualClientsController < ApplicationController
 
   def individual_client_params
     params.require(:individual_client)
-      .permit(:name, :cpf, :email, address_attributes: %i[id street number complement
-              neighborhood city state])
+          .permit(:name, :cpf, :email, address_attributes: %i[id street number complement
+                                                              neighborhood city state])
   end
-
 end

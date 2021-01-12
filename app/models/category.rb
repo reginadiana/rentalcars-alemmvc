@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Category < ApplicationRecord
   validates :name, :daily_rate, presence: true
   has_many :rental_prices

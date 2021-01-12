@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SubsidiariesController < ApplicationController
-before_action :authorize_admin
+  before_action :authorize_admin
 
   def index
     @subsidiaries = Subsidiary.all
@@ -24,7 +26,7 @@ before_action :authorize_admin
     @categories = Category.all
     @categories.each do |category|
       RentalPrice.create!(category: category, subsidiary: @subsidiary,
-                         daily_rate: category.daily_rate)
+                          daily_rate: category.daily_rate)
     end
     return redirect_to @subsidiary if @subsidiary.save
 
@@ -50,7 +52,7 @@ before_action :authorize_admin
 
   def subsidiary_params
     params.require(:subsidiary)
-      .permit(:name, :cnpj, address_attributes: %i[id street number complement
-              neighborhood city state])
+          .permit(:name, :cnpj, address_attributes: %i[id street number complement
+                                                       neighborhood city state])
   end
 end

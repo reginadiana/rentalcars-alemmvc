@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User edits individual client' do
   scenario 'successfully' do
     user = create(:user, role: :user)
     individual_client = create(:individual_client, name: 'Joca',
-                               cpf: '2342342423', email: 'joca@email.com')
-    individual_client.create_address!(attributes = {  street: 'rua', number: '3', complement: '2',
-                             neighborhood: 'vila', city: 'São Caetano',
-                             state:'SP'} )
+                                                   cpf: '2342342423', email: 'joca@email.com')
+    individual_client.create_address!(attributes = { street: 'rua', number: '3', complement: '2',
+                                                     neighborhood: 'vila', city: 'São Caetano',
+                                                     state: 'SP' })
 
     login_as user, scope: :user
     visit root_path
@@ -33,14 +35,14 @@ feature 'User edits individual client' do
     expect(page).to have_content('São Paulo')
     expect(page).to have_content('SP')
   end
-  
+
   scenario 'and must fill all fields' do
     user = create(:user, role: :user)
     individual_client = create(:individual_client, name: 'Joca',
-                               cpf: '2342342423', email: 'joca@email.com')
-    individual_client.create_address!(attributes = {  street: 'rua', number: '3', complement: '2',
-                             neighborhood: 'vila', city: 'São Caetano',
-                             state:'SP'} )
+                                                   cpf: '2342342423', email: 'joca@email.com')
+    individual_client.create_address!(attributes = { street: 'rua', number: '3', complement: '2',
+                                                     neighborhood: 'vila', city: 'São Caetano',
+                                                     state: 'SP' })
 
     login_as user, scope: :user
     visit root_path
@@ -69,10 +71,10 @@ feature 'User edits individual client' do
 
   scenario 'must be logged in and access via url' do
     individual_client = create(:individual_client, name: 'Joca',
-                               cpf: '2342342423', email: 'joca@email.com')
-    individual_client.create_address!(attributes = {  street: 'rua', number: '3', complement: '2',
-                             neighborhood: 'vila', city: 'São Caetano',
-                             state:'SP'} )
+                                                   cpf: '2342342423', email: 'joca@email.com')
+    individual_client.create_address!(attributes = { street: 'rua', number: '3', complement: '2',
+                                                     neighborhood: 'vila', city: 'São Caetano',
+                                                     state: 'SP' })
 
     visit edit_individual_client_path(1)
 

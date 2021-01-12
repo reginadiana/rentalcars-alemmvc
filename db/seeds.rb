@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 subsidiary = Subsidiary.create(name: 'Almeidinha Motors',
                                cnpj: '57.669.960/0001-66')
 User.create(email: 'user@email.com', password: '123456', subsidiary: subsidiary,
@@ -28,4 +30,4 @@ AddonItem.create(addon: addon_bebe, registration_number: '789010', status: :unav
 Insurance.create(category: category_a, name: 'Seguro Básico',
                  daily_rate: 20.0)
 Insurance.create(category: category_a, name: 'Seguro Terceiros',
-                  daily_rate: 30.0)
+                 daily_rate: 30.0)

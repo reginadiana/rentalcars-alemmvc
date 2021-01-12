@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User schedules rental' do
@@ -8,9 +10,9 @@ feature 'User schedules rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 50)
     create(:individual_client, name: 'Claudionor',
-           cpf: '318.421.176-43', email: 'cro@email.com')
+                               cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model)
 
     login_as user, scope: :user
@@ -25,7 +27,8 @@ feature 'User schedules rental' do
     click_on 'Agendar'
 
     expect(page).to have_css('h1', text: 'Locação de: Claudionor')
-    expect(page).to have_css('h3', text: 'Status: agendada')
+    expect(page).to have_css('h3', text: 'Status:')
+    expect(page).to have_css('span', text: 'Agendada')
     expect(page).to have_css('p', text: 'cro@email.com')
     expect(page).to have_css('p', text: '318.421.176-43')
     expect(page).to have_css('p', text: '04 de janeiro de 3000')
@@ -42,9 +45,9 @@ feature 'User schedules rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 10)
     create(:individual_client, name: 'Claudionor',
-           cpf: '318.421.176-43', email: 'cro@email.com')
+                               cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     car = create(:car, car_model: car_model)
     login_as user, scope: :user
 
@@ -68,9 +71,9 @@ feature 'User schedules rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 10)
     create(:individual_client, name: 'Claudionor',
-           cpf: '318.421.176-43', email: 'cro@email.com')
+                               cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     car = create(:car, car_model: car_model)
     login_as user, scope: :user
 
@@ -94,16 +97,16 @@ feature 'User schedules rental' do
     manufacture = create(:manufacture)
     fuel_type = create(:fuel_type)
     customer =  create(:individual_client, name: 'Claudionor', cpf: '318.421.176-43',
-                       email: 'cro@email.com')
+                                           email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     other_car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                             fuel_type: fuel_type, category: other_category)
+                                         fuel_type: fuel_type, category: other_category)
     car = create(:car, car_model: car_model, status: :unavailable)
     other_car = create(:car, car_model: other_car_model, status: :available)
     create(:rental, category: other_category, subsidiary: subsidiary,
-           start_date: '3000-01-03', end_date: '3000-01-08', client: customer,
-           price_projection: 100)
+                    start_date: '3000-01-03', end_date: '3000-01-08', client: customer,
+                    price_projection: 100)
     login_as user, scope: :user
 
     visit root_path
@@ -125,20 +128,20 @@ feature 'User schedules rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 10)
     customer = create(:individual_client, name: 'Claudionor',
-                      cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     other_customer = create(:individual_client, name: 'Junior',
-                            cpf: '323.231.116-3', email: 'junior@email.com')
+                                                cpf: '323.231.116-3', email: 'junior@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model)
     create(:car, car_model: car_model)
     create(:car, car_model: car_model)
     create(:rental, category: category, subsidiary: subsidiary,
-           start_date: '3000-01-02', end_date: '3000-01-03',
-           client: other_customer, price_projection: 100)
+                    start_date: '3000-01-02', end_date: '3000-01-03',
+                    client: other_customer, price_projection: 100)
     create(:rental, category: category, subsidiary: subsidiary,
-           start_date: '3000-01-08', end_date: '3000-01-10',
-           client: other_customer, price_projection: 100)
+                    start_date: '3000-01-08', end_date: '3000-01-10',
+                    client: other_customer, price_projection: 100)
     login_as user, scope: :user
 
     visit root_path

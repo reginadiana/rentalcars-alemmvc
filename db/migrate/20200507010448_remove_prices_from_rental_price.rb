@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemovePricesFromRentalPrice < ActiveRecord::Migration[5.2]
   def change
     remove_column :rental_prices, :daily_car_insurance, :string

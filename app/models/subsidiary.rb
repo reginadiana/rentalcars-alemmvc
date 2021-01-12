@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Subsidiary < ApplicationRecord
   has_many :rental_prices
   has_one :address, as: :addressable

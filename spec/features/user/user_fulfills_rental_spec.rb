@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User fulfils rental' do
@@ -8,14 +10,14 @@ feature 'User fulfils rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 50)
     customer = create(:individual_client, name: 'Claudionor',
-                    cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     car = create(:car, car_model: car_model, license_plate: 'TAT-1234')
     other_car = create(:car, car_model: car_model, license_plate: 'RER-1234')
     rental = create(:rental, category: category, subsidiary: subsidiary,
-                    start_date: '3000-01-08', end_date: '3000-01-10',
-                    client: customer, price_projection: 100, status: :scheduled)
+                             start_date: '3000-01-08', end_date: '3000-01-10',
+                             client: customer, price_projection: 100, status: :scheduled)
     login_as user, scope: :user
 
     visit root_path
@@ -43,14 +45,14 @@ feature 'User fulfils rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 50)
     customer = create(:individual_client, name: 'Claudionor',
-                    cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model, license_plate: 'MVM-838')
     create(:car, car_model: car_model, license_plate: 'TLA-090')
     rental = create(:rental, category: category, subsidiary: subsidiary,
-                    start_date: '3000-01-08', end_date: '3000-01-10',
-                    client: customer, price_projection: 100, status: :scheduled)
+                             start_date: '3000-01-08', end_date: '3000-01-10',
+                             client: customer, price_projection: 100, status: :scheduled)
     login_as user, scope: :user
 
     visit root_path
@@ -73,29 +75,29 @@ feature 'User fulfils rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 50)
     customer = create(:individual_client, name: 'Claudionor',
-                    cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model, license_plate: 'MVM-838')
     create(:car, car_model: car_model, license_plate: 'TLA-090')
     rental = create(:rental, category: category, subsidiary: subsidiary,
-                    start_date: '3000-01-08', end_date: '3000-01-10',
-                    client: customer, price_projection: 100, status: :scheduled)
+                             start_date: '3000-01-08', end_date: '3000-01-10',
+                             client: customer, price_projection: 100, status: :scheduled)
     addon_confort = create(:addon, name: 'Bebê conforto', daily_rate: 10.0)
     create(:addon_item, addon: addon_confort, registration_number: '123456',
-           status: :available)
+                        status: :available)
     create(:addon_item, addon: addon_confort, registration_number: '123456',
-           status: :unavailable)
+                        status: :unavailable)
     addon_gps = create(:addon, name: 'GPS', daily_rate: 20.0)
     create(:addon_item, addon: addon_gps, registration_number: '123456',
-           status: :unavailable)
+                        status: :unavailable)
     create(:addon_item, addon: addon_gps, registration_number: '789010',
-           status: :available)
+                        status: :available)
 
     insurance = create(:insurance, category: category, name: 'Seguro Básico',
-                       daily_rate: 20.0)
+                                   daily_rate: 20.0)
     other_insurance = create(:insurance, category: category, name: 'Seguro Terceiros',
-                             daily_rate: 30.0)
+                                         daily_rate: 30.0)
     login_as user, scope: :user
 
     visit root_path
@@ -124,14 +126,14 @@ feature 'User fulfils rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 10)
     customer = create(:individual_client, name: 'Claudionor',
-                    cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model, license_plate: 'MVM-838')
     create(:car, car_model: car_model, license_plate: 'TLA-090')
     rental = create(:rental, category: category, subsidiary: subsidiary,
-                    start_date: '3000-01-08', end_date: '3000-01-10',
-                    client: customer, price_projection: 100, status: :scheduled)
+                             start_date: '3000-01-08', end_date: '3000-01-10',
+                             client: customer, price_projection: 100, status: :scheduled)
     login_as user, scope: :user
 
     visit root_path
@@ -150,24 +152,24 @@ feature 'User fulfils rental' do
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 10)
     customer = create(:individual_client, name: 'Claudionor',
-                    cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model, license_plate: 'MVM-838')
     create(:car, car_model: car_model, license_plate: 'TLA-090')
     rental = create(:rental, category: category, subsidiary: subsidiary,
-                    start_date: '3000-01-08', end_date: '3000-01-10',
-                    client: customer, price_projection: 100, status: :scheduled)
+                             start_date: '3000-01-08', end_date: '3000-01-10',
+                             client: customer, price_projection: 100, status: :scheduled)
     addon_confort = create(:addon, name: 'Bebê conforto', daily_rate: 10.0)
     create(:addon_item, addon: addon_confort, registration_number: '123456',
-           status: :available)
+                        status: :available)
     create(:addon_item, addon: addon_confort, registration_number: '123456',
-           status: :unavailable)
+                        status: :unavailable)
     addon_gps = create(:addon, name: 'GPS', daily_rate: 20.0)
     create(:addon_item, addon: addon_gps, registration_number: '123456',
-           status: :unavailable)
+                        status: :unavailable)
     create(:addon_item, addon: addon_gps, registration_number: '789010',
-           status: :available)
+                        status: :available)
     create(:addon, name: 'Porta celular')
     login_as user, scope: :user
 
@@ -182,35 +184,35 @@ feature 'User fulfils rental' do
     click_on 'Confirmar'
 
     expect(current_path).to eq rental_path(rental)
-    expect(page).to have_content('em andamento')
+    expect(page).to have_content('Em andamento')
   end
 
   scenario 'and user and rental must belong to same subsidiary' do
     subsidiary = create(:subsidiary, name: 'Almeidinha Motors')
-    other_subsidiary = create(:subsidiary, name: 'MoratoMotors' )
+    other_subsidiary = create(:subsidiary, name: 'MoratoMotors')
     user = create(:user, subsidiary: subsidiary)
     manufacture = create(:manufacture)
     fuel_type = create(:fuel_type)
     category = create(:category, name: 'A', daily_rate: 10)
     customer = create(:individual_client, name: 'Claudionor',
-                    cpf: '318.421.176-43', email: 'cro@email.com')
+                                          cpf: '318.421.176-43', email: 'cro@email.com')
     car_model = create(:car_model, name: 'Sedan', manufacture: manufacture,
-                       fuel_type: fuel_type, category: category)
+                                   fuel_type: fuel_type, category: category)
     create(:car, car_model: car_model, license_plate: 'MVM-838')
     create(:car, car_model: car_model, license_plate: 'TLA-090')
     rental = create(:rental, category: category, subsidiary: other_subsidiary,
-                    start_date: '3000-01-08', end_date: '3000-01-10',
-                    client: customer, price_projection: 100, status: :scheduled)
+                             start_date: '3000-01-08', end_date: '3000-01-10',
+                             client: customer, price_projection: 100, status: :scheduled)
     addon_confort = create(:addon, name: 'Bebê conforto', daily_rate: 10.0)
     create(:addon_item, addon: addon_confort, registration_number: '123456',
-           status: :available)
+                        status: :available)
     create(:addon_item, addon: addon_confort, registration_number: '123456',
-           status: :unavailable)
+                        status: :unavailable)
     addon_gps = create(:addon, name: 'GPS', daily_rate: 20.0)
     create(:addon_item, addon: addon_gps, registration_number: '123456',
-           status: :unavailable)
+                        status: :unavailable)
     create(:addon_item, addon: addon_gps, registration_number: '789010',
-           status: :available)
+                        status: :available)
     create(:addon, name: 'Porta celular')
     login_as user, scope: :user
 

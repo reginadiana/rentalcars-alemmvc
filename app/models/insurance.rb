@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Insurance < ApplicationRecord
   belongs_to :category
   validates :name, :daily_rate, presence: true

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User login to system' do 
+feature 'User login to system' do
   scenario 'successfully' do
     user = create(:user)
-    
+
     visit root_path
     fill_in 'E-mail', with: user.email
     fill_in 'Senha', with: user.password

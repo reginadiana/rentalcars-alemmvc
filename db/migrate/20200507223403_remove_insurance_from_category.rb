@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveInsuranceFromCategory < ActiveRecord::Migration[5.2]
   def change
     remove_column :categories, :third_party_insurance, :string

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDailyRatesToCategory < ActiveRecord::Migration[5.2]
   def change
     add_column :categories, :daily_rate, :float

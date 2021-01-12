@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin register car model' do
   scenario 'successfully' do
     user = create(:user, role: :admin)
     create(:manufacture, name: 'Fiat')
-    create(:fuel_type, name:'Gasolina')
+    create(:fuel_type, name: 'Gasolina')
     create(:category, name: 'A')
 
     login_as user, scope: :user

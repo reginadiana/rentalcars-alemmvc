@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class CorporateClient < Client
   validates :email, presence: true
   validates :trade_name, presence: true
   validates :cnpj, presence: true
 
   def name
-    self.trade_name
+    trade_name
   end
 
   def cpf
-    self.cnpj
+    cnpj
   end
 
   def client_description
-    "#{self.name} | CNPJ: #{self.cpf} | #{self.email}"
+    "#{name} | CNPJ: #{cpf} | #{email}"
   end
 end

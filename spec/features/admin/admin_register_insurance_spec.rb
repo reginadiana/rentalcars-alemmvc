@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin register insurance' do
   scenario 'successfully' do
     subsidiary = create(:subsidiary, name: 'Rent a Car')
-    subsidiary.create_address!(attributes = {  street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
     user = create(:user, role: :admin)
     create(:category, name: 'A')
     create(:category, name: 'B')

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InsurancesController < ApplicationController
   before_action :authorize_admin, only: %i[new create]
 
@@ -20,8 +22,8 @@ class InsurancesController < ApplicationController
   end
 
   private
+
   def insurante_params
     params.require(:insurance).permit(:name, :category_id, :daily_rate)
   end
 end
-

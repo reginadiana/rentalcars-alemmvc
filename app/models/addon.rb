@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Addon < ApplicationRecord
   has_one_attached :photo
   has_many :addon_items

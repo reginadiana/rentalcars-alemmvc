@@ -1,4 +1,14 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.current_user {
+  font-weight: lighter;
+  margin-right: 10px;
+}
 
 .cards {
   display: flex;

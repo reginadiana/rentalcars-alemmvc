@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RentalItem < ApplicationRecord
   belongs_to :rental
   belongs_to :rentable, polymorphic: true

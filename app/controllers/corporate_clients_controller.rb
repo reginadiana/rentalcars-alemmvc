@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CorporateClientsController < ApplicationController
   before_action :authenticate_user!
 
@@ -40,7 +42,7 @@ class CorporateClientsController < ApplicationController
 
   def corporate_client_params
     params.require(:corporate_client)
-      .permit(:trade_name, :cnpj, :email, address_attributes: %i[id street number complement
-              neighborhood city state])
+          .permit(:trade_name, :cnpj, :email, address_attributes: %i[id street number complement
+                                                                     neighborhood city state])
   end
 end

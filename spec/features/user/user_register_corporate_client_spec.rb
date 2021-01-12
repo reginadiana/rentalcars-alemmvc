@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User register corporate client' do
   scenario 'successfully' do
     user = create(:user, role: :user)
     login_as user, scope: :user
-    
+
     visit root_path
     click_on 'Clientes corporativos'
     click_on 'Registrar cliente corporativo'

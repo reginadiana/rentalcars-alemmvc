@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User edits corporate client' do
   scenario 'successfully' do
     user = create(:user, role: :user)
     corporate_client = create(:corporate_client, trade_name: 'Joca',
-                               cnpj: '2342342423', email: 'joca@email.com')
-    corporate_client.create_address!(attributes = {  street: 'rua', number: '3', complement: '2',
-                             neighborhood: 'vila', city: 'São Caetano',
-                             state:'SP'} )
+                                                 cnpj: '2342342423', email: 'joca@email.com')
+    corporate_client.create_address!(attributes = { street: 'rua', number: '3', complement: '2',
+                                                    neighborhood: 'vila', city: 'São Caetano',
+                                                    state: 'SP' })
 
     login_as user, scope: :user
     visit root_path
@@ -33,14 +35,14 @@ feature 'User edits corporate client' do
     expect(page).to have_content('Rio de Janeiro')
     expect(page).to have_content('RJ')
   end
-  
+
   scenario 'and must fill all fields' do
     user = create(:user, role: :user)
     corporate_client = create(:corporate_client, trade_name: 'Joca',
-                               cnpj: '2342342423', email: 'joca@email.com')
-    corporate_client.create_address!(attributes = {  street: 'rua', number: '3', complement: '2',
-                             neighborhood: 'vila', city: 'São Caetano',
-                             state:'SP'} )
+                                                 cnpj: '2342342423', email: 'joca@email.com')
+    corporate_client.create_address!(attributes = { street: 'rua', number: '3', complement: '2',
+                                                    neighborhood: 'vila', city: 'São Caetano',
+                                                    state: 'SP' })
 
     login_as user, scope: :user
     visit root_path
@@ -69,10 +71,10 @@ feature 'User edits corporate client' do
 
   scenario 'must be logged in and access via url' do
     corporate_client = create(:corporate_client, trade_name: 'Joca',
-                               cnpj: '2342342423', email: 'joca@email.com')
-    corporate_client.create_address!(attributes = {  street: 'rua', number: '3', complement: '2',
-                             neighborhood: 'vila', city: 'São Caetano',
-                             state:'SP'} )
+                                                 cnpj: '2342342423', email: 'joca@email.com')
+    corporate_client.create_address!(attributes = { street: 'rua', number: '3', complement: '2',
+                                                    neighborhood: 'vila', city: 'São Caetano',
+                                                    state: 'SP' })
 
     visit edit_corporate_client_path(1)
 

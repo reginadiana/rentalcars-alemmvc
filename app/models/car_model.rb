@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CarModel < ApplicationRecord
   has_one_attached :photo
   belongs_to :manufacture

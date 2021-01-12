@@ -1,11 +1,12 @@
-class PricesController < ApplicationController
+# frozen_string_literal: true
 
+class PricesController < ApplicationController
   def index
     @prices = Price.all
   end
 
   def new
-    @price = Price.new()
+    @price = Price.new
     @subsidiaries = Subsidiary.all
     @categories = Category.all
   end
@@ -24,8 +25,8 @@ class PricesController < ApplicationController
   end
 
   private
+
   def price_params
     params.require(:price).permit(%i[daily_rate subsidiary_id category_id])
   end
-
 end

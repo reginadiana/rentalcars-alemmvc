@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RentalsController < ApplicationController
   before_action :authorize_user!, only: %i[confirm]
 
@@ -37,7 +39,7 @@ class RentalsController < ApplicationController
         end
       end
       if addons = Addon.where(id: params[:addon_ids])
-        addon_items = addons.map { |addon| addon.first_available_item }
+        addon_items = addons.map(&:first_available_item)
         addon_items.each do |addon_item|
           @rental.rental_items.create(rentable: addon_item, daily_rate: addon_item.addon.daily_rate)
         end
@@ -45,9 +47,9 @@ class RentalsController < ApplicationController
       @rental.update(price_projection: @rental.calculate_final_price)
       render :confirm
     else
-      flash[:alert] = "Carro deve ser selecionado"
+      flash[:alert] = 'Carro deve ser selecionado'
       @cars = @rental.available_cars
-      @addons = Addon.joins(:addon_items).where(addon_items: { status: :available  }).group(:id)
+      @addons = Addon.joins(:addon_items).where(addon_items: { status: :available }).group(:id)
       @insurances = @rental.category.insurances
       render :review
     end
@@ -60,6 +62,7 @@ class RentalsController < ApplicationController
   def search
     @rental = Rental.find_by(reservation_code: params[:q])
     return redirect_to review_rental_path(@rental) if @rental
+
     flash[:alert] = 'Não foi possível encontrar a locação'
     redirect_to rentals_path
   end
@@ -68,7 +71,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     @rental.in_review!
     @cars = @rental.available_cars
-    @addons = Addon.joins(:addon_items).where(addon_items: { status: :available  }).group(:id)
+    @addons = Addon.joins(:addon_items).where(addon_items: { status: :available }).group(:id)
     @insurances = @rental.category.insurances
   end
 
@@ -77,6 +80,7 @@ class RentalsController < ApplicationController
     @rental.ongoing!
     redirect_to @rental
   end
+
   private
 
   def rental_params
@@ -87,8 +91,6 @@ class RentalsController < ApplicationController
 
   def authorize_user!
     @rental = Rental.find(params[:id])
-    unless current_user.admin? || @rental.subsidiary == current_subsidiary
-      redirect_to @rental
-    end
+    redirect_to @rental unless current_user.admin? || @rental.subsidiary == current_subsidiary
   end
 end

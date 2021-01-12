@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin edits manufacture' do
@@ -39,4 +41,3 @@ feature 'Admin edits manufacture' do
     expect(page).not_to have_content('Fabricantes')
   end
 end
-

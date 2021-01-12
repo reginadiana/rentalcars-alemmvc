@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddStatusToAddonItem < ActiveRecord::Migration[5.2]
   def change
     add_column :addon_items, :status, :integer

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDailyRateToRentalItem < ActiveRecord::Migration[5.2]
   def change
     add_column :rental_items, :daily_rate, :float

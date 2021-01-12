@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Rental < ApplicationRecord
   before_create :generate_reservation_code
   belongs_to :client
@@ -12,6 +14,7 @@ class Rental < ApplicationRecord
 
   def calculate_price_projection
     return 0 unless start_date && end_date && category
+
     days = (end_date - start_date).to_i
     days * category.daily_rate
   end
@@ -25,9 +28,8 @@ class Rental < ApplicationRecord
 
   def start_cannot_be_greater_than_end
     return 0 if start_date.nil? || end_date.nil?
-    if start_date > end_date
-      errors.add(:start_date, 'não pode ser maior que data de término.')
-    end
+
+    errors.add(:start_date, 'não pode ser maior que data de término.') if start_date > end_date
   end
 
   def available_cars
@@ -35,15 +37,11 @@ class Rental < ApplicationRecord
   end
 
   def cars_available
-    if cars_available_at_date_range
-      errors.add(:category, 'Não há carros disponíveis na categoria escolhida.')
-    end
+    errors.add(:category, 'Não há carros disponíveis na categoria escolhida.') if cars_available_at_date_range
   end
 
   def price_cannot_be_zero
-    if price_projection <= 0
-      errors.add(:price_projection, 'não pode ser zero.')
-    end
+    errors.add(:price_projection, 'não pode ser zero.') if price_projection <= 0
   end
 
   def car
@@ -60,12 +58,12 @@ class Rental < ApplicationRecord
 
   def cars_available_at_date_range
     scheduled_rentals = Rental.where(category: category)
-      .where(start_date: start_date..end_date)
-      .or(Rental.where(category: category)
+                              .where(start_date: start_date..end_date)
+                              .or(Rental.where(category: category)
       .where(end_date: start_date..end_date))
 
     available_cars_at_category = Car.where(status: :available).joins(:car_model)
-      .where(car_models: { category: category })
+                                    .where(car_models: { category: category })
     scheduled_rentals.count >= available_cars_at_category.count
   end
 

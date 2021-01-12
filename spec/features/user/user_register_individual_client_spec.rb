@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User register individual client' do
   scenario 'successfully' do
     user = create(:user, role: :user)
     login_as user, scope: :user
-    
+
     visit root_path
     click_on 'Clientes individuais'
     click_on 'Registrar cliente individual'
@@ -66,5 +68,4 @@ feature 'User register individual client' do
 
     expect(current_path).to eq new_user_session_path
   end
-
 end

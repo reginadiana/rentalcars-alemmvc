@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin registers multiple rental prices' do
   scenario 'successfully' do
     subsidiary = create(:subsidiary, name: 'Rent a Car')
-    subsidiary.create_address!(attributes = {  street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
     user = create(:user, role: :admin)
     category_a = create(:category, name: 'A')
     category_b = create(:category, name: 'B')
@@ -40,8 +42,8 @@ feature 'Admin registers multiple rental prices' do
 
   scenario 'and must fill all fields' do
     subsidiary = create(:subsidiary, name: 'Rent a Car')
-    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
     user = create(:user, role: :admin)
     category_a = create(:category, name: 'A')
     category_b = create(:category, name: 'B')
@@ -68,13 +70,13 @@ feature 'Admin registers multiple rental prices' do
 
   scenario 'and price table shows only last set prices' do
     subsidiary = create(:subsidiary, name: 'Rent a Car')
-    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
     user = create(:user, role: :admin)
     category_a = create(:category, name: 'A')
     category_b = create(:category, name: 'B')
     create(:rental_price, category: category_a, subsidiary: subsidiary, daily_rate: 10)
-    create(:rental_price, category: category_b,subsidiary: subsidiary, daily_rate: 10)
+    create(:rental_price, category: category_b, subsidiary: subsidiary, daily_rate: 10)
 
     login_as user, scope: :user
     visit root_path
@@ -105,8 +107,8 @@ feature 'Admin registers multiple rental prices' do
 
   scenario 'and must be admin' do
     subsidiary = create(:subsidiary, name: 'Rent a Car')
-    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100', 
-      neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
+    subsidiary.create_address!(attributes = { street: 'A. Paulista', number: '100',
+                                              neighborhood: 'Cerqueira César', city: 'São Paulo', state: 'SP' })
     user = create(:user, role: :user)
     create(:category, name: 'A')
     create(:category, name: 'B')
