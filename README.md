@@ -96,6 +96,18 @@ Quando criamos um model do rails, ele já nasce com as responsabilidades de pers
 
 :books: **13/01 - Quarta**
 
+## Limitações dos helpers
+
+- O helper é aberto para ser usado em qualquer momemnto e em qualquer view, fazendo com que perdemos o controle sobre onde vieram os metodos e onde podemos chamá-los.
+
+## Presenter
+
+- Uma boa view deve ter pouca lógica 
+
+**Presenter** é um pattern que condensa em uma clase o conteudo de uma view. Ele pega o dado de um modal e converte para estar disponivel em uma view. 
+
+**Simple Delegator** é unico
+
 :books: **15/01 - Sexta**
 
 :books: **18/01 - Segunda**
