@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'draper'
 gem 'mini_racer', platforms: :ruby
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4.2'

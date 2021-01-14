@@ -31,3 +31,4 @@ Insurance.create(category: category_a, name: 'Seguro Básico',
                  daily_rate: 20.0)
 Insurance.create(category: category_a, name: 'Seguro Terceiros',
                  daily_rate: 30.0)
+

@@ -1,6 +1,6 @@
 <h1>Locação de:  <%= @rental.client.name %></h1>
 
-<h3>Status: <%= rental_status(@rental) %></h3>
+<h3>Status: <%= @rental.status_badge %></h3>
 
 <p><%= Rental.human_attribute_name('reservation_code') %>: <%= @rental.reservation_code %></p>
 
@@ -17,3 +17,5 @@
 <p><%= Rental.human_attribute_name('category') %>: <%= @rental.category.name  %>
 
 <p><%= Rental.human_attribute_name('price_projection') %>: <%= number_to_currency(@rental.price_projection) %>
+
+<%= @rental.next_action_link %>
